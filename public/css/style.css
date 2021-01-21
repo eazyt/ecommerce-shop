@@ -117,7 +117,7 @@ li a {
   display: flex;
   justify-content: flex-start;
   /* border-bottom: 4px solid grey; */
-  border-bottom: 4px dashed grey;
+  /* border-bottom: 4px solid grey; */
   margin: 0 auto;
 }
 
@@ -130,7 +130,7 @@ li a {
   display: flex;
   align-items: center;
   /* border-bottom: 4px solid grey; */
-  border-bottom: 4px dashed grey;
+  border-bottom: 4px solid grey;
 }
 
 .product {
@@ -139,21 +139,21 @@ li a {
   justify-content: space-around;
   align-items: center;
   padding: 10px 0;
-  border-bottom: 4px dashed grey;
+  border-bottom: 4px solid grey;
   /* border-bottom: 4px solid grey; */
   /* margin: 0 auto; */
 }
 
 .total {
   width: 10%;
-  border-bottom: 4px dashed grey;
+  border-bottom: 4px solid grey;
   display: flex;
   align-items: center;
 }
 
 .quantity {
   width: 25%;
-  border-bottom: 4px dashed grey;
+  border-bottom: 4px solid grey;
   display: flex;
   align-items: center;
 }

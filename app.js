@@ -156,10 +156,24 @@ function displayCart() {
 
 function deleteButtons() { 
   let deleteButtons = document.querySelectorAll('.product ion-icon');
+  let productName;
+  let productNumbers = localStorage.getItem('cartNumbers');
+  let cartItems = localStorage.getItem('productsInCart')
+  cartItems = JSON.parse(cartItems)
+  let cartCost = localStorage.getItem('totalCost');
 
   for (let i = 0; i < deleteButtons.length; i++) { 
     deleteButtons[i].addEventListener('click', () => { 
+      productName = deleteButtons[i].parentElement.textContent.trim().toLowerCase().replace(/ /g, '');
 
+      localStorage.setItem('cartNumbers', productNumbers - cartItems[productName].inCart)
+      localStorage.setItem('totalCost', cartCost - (cartItems[productName].price * cartItems[productName].inCart))
+
+      delete cartItems[productName];
+      localStorage.setItem('productInCart', JSON.stringify(cartItems));
+
+      onLoadCartNumbers()
+      displayCart()
     })
   }
   deleteButtons()
