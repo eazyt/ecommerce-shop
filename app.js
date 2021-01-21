@@ -29,7 +29,7 @@ let products = [{
 for (let i = 0; i < carts.length; i++) {
   carts[i].addEventListener('click', () => {
     console.log('added to cart')
-    cartNumbers()
+    cartNumbers(products[i])
   })
 }
 
@@ -46,7 +46,8 @@ function onLoadCartNumbers() {
     } 
 }
 
-function cartNumbers() {
+function cartNumbers(product) {
+  // console.log('you clicked on item:', product)
   let productNumbers = localStorage.getItem('cartNumbers');
 
   productNumbers = parseInt(productNumbers);
@@ -62,7 +63,23 @@ function cartNumbers() {
     
   }
 
+  setItems(product);
 
+}
+
+function setItems(product) { 
+
+  let cartItems = localStorage.getItem('productsInCart');
+
+  cartItems = JSON.parse(cartItems);
+
+  product.inCart = 1;
+
+  let cartItems = {
+    [product.tag]: product
+  }
+
+  localStorage.setItem('productsInCart', JSON.stringify(cartItems))
 }
 
 onLoadCartNumbers()
