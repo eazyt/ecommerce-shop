@@ -154,7 +154,16 @@ function displayCart() {
   } 
 }
 
+function deleteButtons() { 
+  let deleteButtons = document.querySelectorAll('.product ion-icon');
 
+  for (let i = 0; i < deleteButtons.length; i++) { 
+    deleteButtons[i].addEventListener('click', () => { 
+
+    })
+  }
+  deleteButtons()
+}
 
 // run function on page Load
 
