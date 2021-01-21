@@ -8,19 +8,19 @@ let products = [{
   },
   {
     name: 'Canon EOS 80D',
-    tag: 'gadgets',
+    tag: 'Cameras',
     price: 250,
     inCart: 0
   },
   {
     name: 'headPhones Blue',
-    tag: 'gadgets',
+    tag: 'Music',
     price: 50,
     inCart: 0
   },
   {
     name: 'Nice Tv',
-    tag: 'gadgets',
+    tag: 'Television',
     price: 2250,
     inCart: 0
   },
@@ -73,11 +73,25 @@ function setItems(product) {
 
   cartItems = JSON.parse(cartItems);
 
-  product.inCart = 1;
+  if (cartItems != null) {
 
-  let cartItems = {
-    [product.tag]: product
+    if (cartItems[product.tag] == undefined) {
+      cartItems = {
+        ...cartItems,
+        [product.tag]: product
+      }
+    }
+
+    cartItems[product.tag].inCart += 1
+  } else { 
+
+    product.inCart = 1;
+    cartItems = {
+      [product.tag]: product
+    }
   }
+  
+  
 
   localStorage.setItem('productsInCart', JSON.stringify(cartItems))
 }
